@@ -8,7 +8,8 @@ SudokuSolver::SudokuSolver(const Sudoku& sudoku) : m_sudoku(sudoku) {
 	updateClauses();
 }
 
-std::size_t SudokuSolver::getVariableNumber(std::pair<std::size_t, std::size_t> pos, std::int64_t val) const noexcept {
+std::size_t SudokuSolver::getVariableNumber(std::pair<std::size_t, std::size_t> pos,
+											std::int64_t val) const noexcept {
 	auto size = m_sudoku.getSize();
 	return (pos.first * size + pos.second) * size + val;
 }
@@ -80,7 +81,7 @@ void SudokuSolver::updateClauses() {
 				for(int i = a; i < a + blockLength; i++) {
 					for(int j = b; j < b + blockLength; j++) {
 						for(int k = a; k < a + blockLength; k++) {
-							for (int l = b; l < b + blockLength; l++) {
+							for(int l = b; l < b + blockLength; l++) {
 								if(i == k || j == l)
 									continue;
 								clause.clear();
@@ -139,4 +140,4 @@ std::optional<SolvedSudoku> SudokuSolver::solve() noexcept {
 	return {};
 }
 
-}
+} // namespace satoku

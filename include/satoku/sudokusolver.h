@@ -8,17 +8,18 @@ namespace satoku {
 
 class SudokuSolver {
 public:
-    SudokuSolver(const Sudoku& sudoku);
+	SudokuSolver(const Sudoku& sudoku);
 
-    std::optional<SolvedSudoku> solve() noexcept;
+	std::optional<SolvedSudoku> solve() noexcept;
 
 private:
-    void updateClauses();
-    std::size_t getVariableNumber(std::pair<std::size_t, std::size_t> pos, std::int64_t val) const noexcept;
+	void updateClauses();
+	std::size_t getVariableNumber(std::pair<std::size_t, std::size_t> pos,
+								  std::int64_t val) const noexcept;
 
-    Sudoku m_sudoku;
-    std::vector<SolvedSudoku> m_solutions;
-    std::vector<std::vector<CMSat::Lit>> m_clauses;
+	Sudoku m_sudoku;
+	std::vector<SolvedSudoku> m_solutions;
+	std::vector<std::vector<CMSat::Lit>> m_clauses;
 };
 
-}
+} // namespace satoku
