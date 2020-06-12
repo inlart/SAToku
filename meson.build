@@ -6,3 +6,4 @@ inc = include_directories('include')
 
 subdir('include')
 subdir('satoku')
+subdir('satoku-cli')
