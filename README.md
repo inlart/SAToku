@@ -14,10 +14,15 @@ SAToku supports different sizes (e.g. 4x4, the classic 9x9, 16x16) as long as th
 
 The code shown uses SAToku to solve a 4x4 Sudoku with the entries
 ```
+-----------------
 | 3 |   | 4 |   |
+|---+---+---+---|
 |   | 1 |   | 2 |
+|---+---+---+---|
 |   | 4 |   | 3 |
+|---+---+---+---|
 | 2 |   | 1 |   |
+-----------------
 ```
 
 ```cpp
@@ -55,4 +60,14 @@ int main(int argc, char* argv[]) {
 
 	return EXIT_SUCCESS;
 }
+```
+
+## CLI
+
+The `satoku-cli` takes the Sudoku size as first argument followed by arguments setting values in the format `[row],[column]=[value]`.
+Note that the first row and column starts at 1 and not 0.
+
+To solve the same Sudoku as in the Library section you can call `satoku-cli` with
+```sh
+satoku-cli 4 1,1=3 1,3=4 2,2=1 2,4=2 3,2=4 3,4=3 4,1=2 4,3=1
 ```
